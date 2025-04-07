@@ -23,9 +23,10 @@ pipeline {
             steps {
                 script {
                     sh 'git clone https://github.com/raghuatharva/Jenkins-backend-CI.git'
-                    APP_VERSION = sh(script: 'git describe --tags --abbrev=0', returnStdout: true).trim()
+                    APP_VERSION = sh(script: 'cd jenkins-backend-CI && git describe --tags --abbrev=0', returnStdout: true).trim()
                     echo "The latest version is ${APP_VERSION}"
                 }
+                // this is the only and best way to get the tag version. clone it , cd into cloned repo and get the latest tag version. 
             }
         }
 

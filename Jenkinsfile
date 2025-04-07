@@ -3,7 +3,7 @@
 def configMap = [
     project: "expense",
     component: "backend"
-    // we are passing the variables to shared librray backend pipeline; in that file we kept the same variables empty since we are passing from here
+    // we are passing the variables to all configMaps inside shared librray ; not only to nodeJSEKSPipeline(configMap)pipeline; since nodeJSEKSPipeline(configMap) is also a configMap, the values passed here will also get used in that since  we kept the same variables empty 
 ]
 if (! env.BRANCH_NAME.equalsIgnoreCase('main')) {
     nodeJSEKSPipeline(configMap)
