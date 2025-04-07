@@ -10,5 +10,5 @@ if (! env.BRANCH_NAME.equalsIgnoreCase('main')) {
 } 
 else {
     echo "This is main branch, so skipping the pipeline"
-    // we are not running the pipeline in main branch , main branch is used for production ONLY
+    // we are not running the pipeline in main branch , main branch is used for production ONLY.
 }
