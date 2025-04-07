@@ -1,11 +1,11 @@
-@library ('Jenkins-Shared-Library-1') _  
+@library('Jenkins-Shared-Library-1') _  
 // in jenkins console we mentioned this name along with the git repo url in the section of global pipeline libraries in manage jenkins --> system configuration. this will import the shared library and we can use the functions defined in the shared library
 def configMap = [
-    project: 'expense',
-    component: 'backend',
+    project: "expense",
+    component: "backend"
     // we are passing the variables to shared librray backend pipeline; in that file we kept the same variables empty since we are passing from here
 ]
-if (!env.BRANCH_NAME.equalsignorecase('main')) {
+if (! env.BRANCH_NAME.equalsIgnoreCase('main')) {
     nodeJSEKSPipeline(configMap)
 } 
 else {
