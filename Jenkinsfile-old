@@ -91,11 +91,12 @@ pipeline {
             }
             steps{
                 build job: 'backend-cd', parameters: [
-                    string(name: 'version', value: "$APP_VERSION"),
+                    string(name: 'version', value: "$APP_VERSION"), 
                     string(name: 'ENVIRONMENT', value: 'dev'),
                 ], wait: true
-                // wait:  true means CI waits for the CD pipeline to complete or to success. if fails, then CI will also fail
             }
+                // here not ${APP_VERSION} because we are passing the value to another pipeline , Do not wrap them with ${} unless inside double-quoted strings. Since value: expects a Groovy expression, just pass the variable as it is.
+                // wait:  true means CI waits for the CD pipeline to complete or to success. if fails, then CI will also fail
         }
     }
     post{
