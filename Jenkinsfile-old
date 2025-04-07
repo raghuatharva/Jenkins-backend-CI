@@ -23,8 +23,8 @@ pipeline {
             steps {
                 script {
                     sh 'git clone https://github.com/raghuatharva/Jenkins-backend-CI.git'
-                    env.APP_VERSION = sh(script: 'git describe --tags --abbrev=0', returnStdout: true).trim()
-                    echo "The latest version is ${env.APP_VERSION}"
+                    APP_VERSION = sh(script: 'git describe --tags --abbrev=0', returnStdout: true).trim()
+                    echo "The latest version is ${APP_VERSION}"
                 }
             }
         }
@@ -78,8 +78,8 @@ pipeline {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                 sh """
                 aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${account_id}.dkr.ecr.us-east-1.amazonaws.com
-                docker build -t ${account_id}.dkr.ecr.${region}.amazonaws.com/${project}/${environment}/${component}:${env.APP_VERSION} .
-                docker push ${account_id}.dkr.ecr.us-east-1.amazonaws.com/${project}/${environment}/${component}:${env.APP_VERSION}
+                docker build -t ${account_id}.dkr.ecr.${region}.amazonaws.com/${project}/${environment}/${component}:${APP_VERSION} .
+                docker push ${account_id}.dkr.ecr.us-east-1.amazonaws.com/${project}/${environment}/${component}:${APP_VERSION}
                 """
                 }
             }
@@ -91,7 +91,7 @@ pipeline {
             }
             steps{
                 build job: 'backend-cd', parameters: [
-                    string(name: 'version', value: ${env.APP_VERSION}),
+                    string(name: 'version', value: ${APP_VERSION}),
                     string(name: 'ENVIRONMENT', value: 'dev'),
                 ], wait: true
                 // wait:  true means CI waits for the CD pipeline to complete or to success. if fails, then CI will also fail
