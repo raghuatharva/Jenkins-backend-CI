@@ -29,6 +29,20 @@ pipeline {
                 // this is the only and best way to get the tag version. clone it , cd into cloned repo and get the latest tag version. 
             }
         }
+        // stage('Read the version') {
+        //     steps {
+        //         script{
+        //             def packageJson = readJSON file: 'package.json'
+        //             appVersion = packageJson.version
+        //             echo "App version: ${appVersion}"
+        //         }
+        //     }
+        // }
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
 
         // stage('Sonarqube analysis') {   
         //     // ಇದು ಯಾವ ಸೋನಾರ್ environment ಅಂತ ಹೇಳುತ್ತೆ.  it may be sonar 6.0 versions , 7.0 or any version
