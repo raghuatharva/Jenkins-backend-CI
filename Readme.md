@@ -117,6 +117,3 @@ node-backend/
 
 Contact DevOps team or raise a ticket in `#devops-support`.
 
----
-
-```
