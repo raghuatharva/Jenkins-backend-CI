@@ -1,24 +1,22 @@
-✅ **Straight Answer**: Here's a full `README.md` file for a **Node.js backend project** using **Jenkins CI**, **SonarQube for code quality**, and **shared libraries** for pipeline reuse. This setup is commonly used in real companies.
 
----
 
 ### ✅ `README.md` for Node.js Backend CI with Jenkins + SonarQube
 
 ````markdown
 # 🚀 Node.js Backend - CI Pipeline with Jenkins & SonarQube
 
-This project contains a **Node.js backend service** with an integrated **CI pipeline** using **Jenkins**, **shared libraries**, and **SonarQube** for code quality checks.
+This project contains a Node.js backend service with an integrated CI pipeline using Jenkins, shared libraries, and SonarQube for code quality checks.
 
 ---
 
 ## 📦 Tech Stack
 
-- **Node.js** (LTS)
-- **Jenkins** (Declarative Pipeline)
-- **SonarQube** (Code analysis)
-- **Docker**
-- **npm** for package management
-- **Jenkins Shared Library** for CI stages
+- Node.js (LTS)
+- Jenkins (Declarative Pipeline)
+- SonarQube (Code analysis)
+- Docker
+- npm for package management
+- Jenkins Shared Library for CI stages
 
 ---
 
@@ -28,20 +26,20 @@ CI is triggered on every push or PR to the `main` or `develop` branch.
 
 ### ✅ Stages:
 
-1. **Checkout code**  
-2. **Install dependencies** (`npm install`)
-3. **Linting and Unit Tests**  
-4. **SonarQube Analysis**  
-5. **Build Docker Image**  
-6. **Push Image to ECR** (optional for CD)
+1. Checkout code  
+2. Install dependencies (`npm install`)
+3. Linting and Unit Tests  
+4. SonarQube Analysis  
+5. Build Docker Image  
+6. Push Image to ECR (optional for CD)
 
 ---
 
 ## 🔐 Security & Quality
 
-- All commits are scanned using **SonarQube**
-- Sensitive info (keys, passwords) should be stored in **Jenkins credentials** or **AWS Secrets Manager**
-- Follows **OWASP Node.js best practices**
+- All commits are scanned using SonarQube
+- Sensitive info (keys, passwords) should be stored in Jenkins credentials or AWS Secrets Manager
+- Follows OWASP Node.js best practices
 
 ---
 
@@ -58,7 +56,7 @@ npm run test
 
 ## 🧱 Shared Library Usage
 
-The pipeline uses a **shared library** hosted in a separate repo (e.g. `jenkins-shared-lib`).
+The pipeline uses a shared library hosted in a separate repo (e.g. `jenkins-shared-lib`).
 
 Structure of shared lib:
 
